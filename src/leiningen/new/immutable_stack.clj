@@ -8,7 +8,8 @@
   "template with weasel repl and server with sente websockets"
   [name]
   (let [data {:name name
-              :sanitized (name-to-path name)}]
+              :sanitized (name-to-path name)
+              :year (year)}]
     (main/info "Generating fresh 'lein new' immutable-stack project.")
 
     (->files data
@@ -23,4 +24,5 @@
              ["src/cljs/{{sanitized}}/core.cljs" (render "core.cljs" data)]
              ["src/cljs/{{sanitized}}/websocket.cljs" (render "websocket.cljs" data)]
 
+             ["README.md" (render "README.md" data)]
              [".gitignore" (render "gitignore" data)])))
