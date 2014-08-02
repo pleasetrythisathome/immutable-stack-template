@@ -5,6 +5,7 @@
 (def render (renderer "immutable-stack"))
 
 (defn immutable-stack
+  "template with weasel repl and server with sente websockets"
   [name]
   (let [data {:name name
               :sanitized (name-to-path name)}]
